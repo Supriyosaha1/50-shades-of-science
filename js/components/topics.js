@@ -1,0 +1,1 @@
+export function initTopics() { const copy = document.querySelector("#topic-copy"); document.querySelectorAll(".topic").forEach(button => button.addEventListener("click", () => { document.querySelectorAll(".topic").forEach(item => item.classList.remove("active")); button.classList.add("active"); copy.textContent = button.dataset.copy; })); }
