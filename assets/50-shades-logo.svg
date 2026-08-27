@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-labelledby="title desc">
+  <title id="title">50 Shades of Science logo</title>
+  <desc id="desc">Atom orbits, planets, and stars in navy and yellow.</desc>
+  <rect width="360" height="320" rx="28" fill="#fffdfa"/>
+  <g fill="none" stroke="#11233d" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="180" cy="158" rx="138" ry="44" stroke-width="7" transform="rotate(-18 180 158)"/>
+    <ellipse cx="180" cy="158" rx="138" ry="44" stroke-width="7" transform="rotate(18 180 158)"/>
+    <ellipse cx="180" cy="158" rx="48" ry="138" stroke-width="7" transform="rotate(-4 180 158)"/>
+  </g>
+  <g fill="#f5c84b" stroke="#11233d" stroke-width="7">
+    <circle cx="180" cy="158" r="31"/>
+    <circle cx="64" cy="100" r="36"/>
+    <circle cx="294" cy="205" r="33"/>
+    <circle cx="276" cy="74" r="13"/>
+    <circle cx="98" cy="232" r="11"/>
+  </g>
+  <g fill="none" stroke="#11233d" stroke-linecap="round" stroke-width="7">
+    <path d="M22 118c18-13 42-24 79-28"/>
+    <path d="M259 213c35-2 61-10 80-25"/>
+  </g>
+  <g fill="#11233d">
+    <path d="M41 37l6 14 15 6-15 6-6 15-6-15-15-6 15-6z"/>
+    <path d="M141 30l4 10 11 4-11 5-4 10-5-10-10-5 10-4z"/>
+    <path d="M305 23l5 12 13 5-13 5-5 13-5-13-12-5 12-5z"/>
+    <path d="M326 127l4 9 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+    <path d="M57 277l5 12 13 5-13 5-5 13-5-13-12-5 12-5z"/>
+    <path d="M276 273l4 9 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+    <circle cx="69" cy="188" r="6"/>
+    <circle cx="246" cy="134" r="6"/>
+    <circle cx="220" cy="50" r="5"/>
+    <circle cx="116" cy="72" r="5"/>
+    <circle cx="317" cy="250" r="5"/>
+  </g>
+</svg>

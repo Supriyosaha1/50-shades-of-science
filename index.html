@@ -1,42 +1,1215 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>50 Shades of Science</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="50 Shades of Science is a science outreach platform for talks, videos, school programs, public events, astronomy workshops, and science merchandise.">
+  <title>50 Shades of Science | Talks, Videos, Workshops and Outreach</title>
   <style>
+    :root {
+      --ink: #14212b;
+      --muted: #5d6e7a;
+      --line: #e1e9ef;
+      --paper: #ffffff;
+      --mist: #f6fafc;
+      --sky: #35799e;
+      --deep-sky: #1f5f82;
+      --green: #4b8068;
+      --coral: #b86b58;
+      --navy: #132635;
+      --shadow: 0 18px 42px rgba(19, 38, 53, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0f;
-      color: white;
-      text-align: center;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f8fbfd 0%, #ffffff 48%, #f6fafc 100%);
+      line-height: 1.6;
     }
-    .hero {
-      padding: 100px 20px;
-    }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 20px;
-      color: #cccccc;
-    }
+
     a {
-      color: #8fd3ff;
+      color: inherit;
       text-decoration: none;
-      font-size: 18px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 20;
+      padding: 0.65rem 0.9rem;
+      background: var(--navy);
+      color: white;
+      border-radius: 6px;
+      transition: top 160ms ease;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .site-nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: min(1120px, calc(100% - 32px));
+      margin: 14px auto 0;
+      padding: 0.8rem 0.9rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(225, 233, 239, 0.95);
+      border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(19, 38, 53, 0.07);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-width: max-content;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 2.65rem;
+      height: 2.35rem;
+      padding: 0.2rem;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 8px 18px rgba(19, 38, 53, 0.06);
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.15rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 0.55rem 0.75rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 700;
+      border-radius: 6px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--deep-sky);
+      background: rgba(29, 139, 209, 0.1);
+      outline: none;
+    }
+
+    .hero {
+      position: relative;
+      padding: 8.5rem 0 5rem;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(248, 251, 253, 0.98), rgba(255, 255, 255, 0.86)),
+        #f8fbfd;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 7rem;
+      background: linear-gradient(180deg, transparent, #f8fbfd);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(380px, 1.15fr);
+      gap: 2.5rem;
+      align-items: center;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-media {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.84fr);
+      gap: 0.85rem;
+      align-items: stretch;
+    }
+
+    .event-photo {
+      position: relative;
+      overflow: hidden;
+      min-height: 0;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .event-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .event-photo.main {
+      grid-row: span 2;
+      min-height: 560px;
+    }
+
+    .event-photo.small {
+      aspect-ratio: 4 / 3;
+    }
+
+    .event-photo.wide {
+      grid-column: 1 / -1;
+      aspect-ratio: 16 / 8;
+    }
+
+    .photo-label {
+      position: absolute;
+      left: 0.8rem;
+      bottom: 0.8rem;
+      padding: 0.42rem 0.6rem;
+      color: white;
+      background: rgba(19, 38, 53, 0.78);
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 0 1.15rem;
+      padding: 0.45rem 0.7rem;
+      color: var(--deep-sky);
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 1.25rem;
+      height: 1px;
+      background: var(--deep-sky);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 1.1rem;
+      font-size: clamp(2.8rem, 6.2vw, 5.8rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .hero-lede {
+      max-width: 650px;
+      margin-bottom: 1.7rem;
+      color: #29465c;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.55;
+      font-weight: 560;
+    }
+
+    .hero-actions,
+    .section-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .merch-actions {
+      margin-top: 1.35rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 3rem;
+      padding: 0.85rem 1.1rem;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      font-weight: 850;
+      line-height: 1;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .button.primary {
+      color: white;
+      background: var(--navy);
+      box-shadow: 0 12px 26px rgba(19, 38, 53, 0.18);
+    }
+
+    .button.primary:hover,
+    .button.primary:focus-visible {
+      background: #0c1c28;
+    }
+
+    .button.secondary {
+      color: var(--deep-sky);
+      background: rgba(255, 255, 255, 0.92);
+      border-color: #d7e2ea;
+    }
+
+    .button.secondary:hover,
+    .button.secondary:focus-visible {
+      background: white;
+      box-shadow: 0 10px 24px rgba(19, 38, 53, 0.08);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      max-width: 680px;
+      margin-top: 2rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-tags li {
+      padding: 0.55rem 0.72rem;
+      color: #24465d;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(225, 233, 239, 0.95);
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section-kicker {
+      margin-bottom: 0.75rem;
+      color: var(--deep-sky);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .section-heading {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.6fr);
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      max-width: 780px;
+      margin-bottom: 0;
+      font-size: clamp(1.95rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .work-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      min-height: 100%;
+      padding: 1.35rem;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(19, 38, 53, 0.05);
+    }
+
+    .card.feature {
+      background: white;
+      box-shadow: 0 14px 34px rgba(19, 38, 53, 0.09);
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 2.6rem;
+      height: 2.6rem;
+      margin-bottom: 1rem;
+      color: var(--deep-sky);
+      background: #f7fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .icon.green {
+      color: var(--green);
+    }
+
+    .icon.coral {
+      color: var(--coral);
+    }
+
+    .icon.navy {
+      color: var(--navy);
+    }
+
+    .icon svg {
+      width: 1.35rem;
+      height: 1.35rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.6rem;
+      font-size: 1.18rem;
+      line-height: 1.2;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .detail-list {
+      display: grid;
+      gap: 0.7rem;
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+      color: #36566c;
+      font-weight: 650;
+    }
+
+    .detail-list li {
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .detail-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.63rem;
+      width: 0.45rem;
+      height: 0.45rem;
+      background: var(--deep-sky);
+      border-radius: 999px;
+    }
+
+    .band {
+      background: #f7fafc;
+      border-block: 1px solid rgba(225, 233, 239, 0.9);
+    }
+
+    .formats {
+      grid-template-columns: 0.75fr 1.25fr;
+      align-items: start;
+    }
+
+    .format-list {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .format-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .format-number {
+      display: grid;
+      place-items: center;
+      width: 2.15rem;
+      height: 2.15rem;
+      color: var(--deep-sky);
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-weight: 900;
+    }
+
+    .format-row h3 {
+      margin-bottom: 0.25rem;
+      font-size: 1.05rem;
+    }
+
+    .format-row p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .topic-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .topic {
+      padding: 1rem;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .topic strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--ink);
+    }
+
+    .topic span {
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .image-frame {
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      background: white;
+      border: 1px solid rgba(217, 232, 242, 0.9);
+    }
+
+    .image-frame img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .photo-section {
+      background: #ffffff;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr 0.9fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .photo-tile {
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 12px 30px rgba(19, 38, 53, 0.08);
+    }
+
+    .photo-tile.large {
+      grid-row: span 2;
+      min-height: 540px;
+    }
+
+    .photo-tile.wide {
+      grid-column: span 2;
+      min-height: 280px;
+    }
+
+    .photo-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-tile figcaption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 3.5rem 1rem 1rem;
+      color: white;
+      background: linear-gradient(180deg, transparent, rgba(19, 38, 53, 0.86));
+      font-weight: 800;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 1.35rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pill-list li {
+      padding: 0.52rem 0.72rem;
+      color: var(--deep-sky);
+      background: #ffffff;
+      border: 1px solid #d7e2ea;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .merch {
+      background: linear-gradient(180deg, #ffffff 0%, #f6fafc 100%);
+    }
+
+    .merch-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.78fr);
+      gap: 2rem;
+      align-items: center;
+      padding: 1.1rem;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .merch-panel .image-frame {
+      box-shadow: none;
+    }
+
+    .price-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0.6rem 0 1.2rem;
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .price-note::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      background: var(--green);
+      border-radius: 999px;
+    }
+
+    .contact {
+      color: white;
+      background: linear-gradient(135deg, #132635, #1f5f82);
+    }
+
+    .contact .section-kicker,
+    .contact .section-copy {
+      color: #bfe8ff;
+    }
+
+    .contact h2 {
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      padding: 1.15rem;
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+    }
+
+    .contact-card strong {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-card span {
+      color: #d8f0ff;
+    }
+
+    .footer {
+      padding: 1.5rem 0;
+      color: #5d7488;
+      background: #f6fafc;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 960px) {
+      .site-nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 10rem;
+      }
+
+      .hero-inner,
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-media {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .event-photo.main {
+        min-height: 520px;
+      }
+
+      .photo-tile.large,
+      .photo-tile.wide {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .section-heading,
+      .formats,
+      .split,
+      .merch-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .work-grid,
+      .topic-grid,
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .site-nav {
+        position: absolute;
+        margin-top: 10px;
+      }
+
+      .nav-links a {
+        padding: 0.45rem 0.55rem;
+        font-size: 0.86rem;
+      }
+
+      .hero {
+        padding-top: 11.5rem;
+      }
+
+      .hero-media {
+        grid-template-columns: 1fr;
+      }
+
+      .event-photo.main {
+        min-height: 430px;
+      }
+
+      .event-photo.wide {
+        grid-column: auto;
+        aspect-ratio: 4 / 3;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 18vw, 4.2rem);
+      }
+
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .work-grid,
+      .topic-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .format-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>50 Shades of Science</h1>
-    <p>Making science simple, beautiful, and exciting.</p>
-    <p>Cosmology • Space • Physics • Public Talks</p>
-    <a href="https://www.instagram.com/50_shades_of_science/" target="_blank">
-      Follow us on Instagram
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="brand" href="#top" aria-label="50 Shades of Science home">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="assets/50-shades-logo.svg" alt="">
+      </span>
+      <span>50 Shades of Science</span>
     </a>
-  </div>
+    <div class="nav-links">
+      <a href="#work">What I do</a>
+      <a href="#talks">Talks</a>
+      <a href="#public-talks">Photos</a>
+      <a href="#workshops">Workshops</a>
+      <a href="#merch">Merch</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="eyebrow">Science outreach, made human</p>
+        <h1>50 Shades of Science</h1>
+        <p class="hero-lede">
+          Talks, videos, school programs, astronomy workshops, cafe and bar science,
+          public lectures, and hands-on communication that makes the universe feel closer.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#contact">Book a talk or workshop</a>
+          <a class="button secondary" href="https://www.instagram.com/50_shades_of_science/" target="_blank" rel="noreferrer">Follow on Instagram</a>
+        </div>
+        <ul class="hero-tags" aria-label="Outreach formats">
+          <li>School talks</li>
+          <li>Public science</li>
+          <li>Astronomy nights</li>
+          <li>Science videos</li>
+          <li>Bar and cafe talks</li>
+          <li>Merchandise</li>
+        </ul>
+      </div>
+
+      <div class="hero-media" aria-label="Photos from a 50 Shades of Science public talk in a bar">
+        <figure class="event-photo main">
+          <img src="assets/photos/bar-talk-speaker.webp" alt="Supriyo giving a science talk with a microphone in a bar venue.">
+          <figcaption class="photo-label">Bar science talk</figcaption>
+        </figure>
+        <figure class="event-photo small">
+          <img src="assets/photos/bar-talk-room.webp" alt="Audience listening to a science lecture in a bar with a projected astronomy slide.">
+          <figcaption class="photo-label">Live audience</figcaption>
+        </figure>
+        <figure class="event-photo small">
+          <img src="assets/photos/bar-talk-cosmic-slide.webp" alt="Projected cosmic timeline slide from a public science talk.">
+          <figcaption class="photo-label">Cosmology explainers</figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="work">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">What I do</p>
+            <h2>Science outside the textbook, built for real audiences.</h2>
+          </div>
+          <p class="section-copy">
+            50 Shades of Science brings physics, astronomy, cosmology, and everyday
+            scientific thinking into places where curiosity already lives: classrooms,
+            auditoriums, festivals, cafes, bars, clubs, and online communities.
+          </p>
+        </div>
+
+        <div class="grid work-grid">
+          <article class="card feature">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 5h16v10H4zM8 19h8M12 15v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </span>
+            <h3>Talks and public lectures</h3>
+            <p>Accessible, energetic sessions for schools, colleges, community groups, festivals, cafes, and bars.</p>
+            <ul class="detail-list">
+              <li>Age-fit explanations</li>
+              <li>Visual storytelling</li>
+              <li>Audience Q and A</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="icon green" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3l8 5-8 5-8-5 8-5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                <path d="M5 11v5c2.4 2.2 11.6 2.2 14 0v-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </span>
+            <h3>School science communication</h3>
+            <p>Interactive sessions that help students ask better questions and see science as something they can do.</p>
+            <ul class="detail-list">
+              <li>Physics and astronomy</li>
+              <li>Career curiosity</li>
+              <li>Hands-on demos</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="icon coral" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 16l6-10 4 7 2-3 4 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M3 19h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </span>
+            <h3>Astronomy workshops</h3>
+            <p>Skywatching, telescope basics, star maps, Moon sessions, and guided ways to understand the night sky.</p>
+            <ul class="detail-list">
+              <li>Telescope handling</li>
+              <li>Sky orientation</li>
+              <li>Cosmic scale</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="icon navy" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"></path>
+                <path d="M10 9l5 3-5 3V9Z" fill="currentColor"></path>
+              </svg>
+            </span>
+            <h3>Videos and digital outreach</h3>
+            <p>Short explainers, event clips, reels, and science stories designed for public audiences online.</p>
+            <ul class="detail-list">
+              <li>Clear scripts</li>
+              <li>Visual hooks</li>
+              <li>Shareable ideas</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="talks">
+      <div class="section-inner">
+        <div class="grid formats">
+          <div>
+            <p class="section-kicker">Talks, videos, outreach</p>
+            <h2>Formats that fit the room.</h2>
+            <p class="section-copy">
+              A school assembly needs a different rhythm from a pub science night.
+              A college audience wants depth. A public event needs warmth, pace,
+              and a clear doorway into the idea. Each session is shaped around
+              the people in front of it.
+            </p>
+            <div class="section-actions">
+              <a class="button primary" href="#contact">Plan a session</a>
+            </div>
+          </div>
+
+          <div class="format-list">
+            <article class="format-row">
+              <span class="format-number">1</span>
+              <div>
+                <h3>Schools and classrooms</h3>
+                <p>Science communication sessions, activity-led lessons, student Q and A, and astronomy introductions for young learners.</p>
+              </div>
+            </article>
+            <article class="format-row">
+              <span class="format-number">2</span>
+              <div>
+                <h3>Bars, cafes, clubs, and public spaces</h3>
+                <p>Friendly public talks that make big ideas conversational without flattening the wonder or the science.</p>
+              </div>
+            </article>
+            <article class="format-row">
+              <span class="format-number">3</span>
+              <div>
+                <h3>Online videos and campaigns</h3>
+                <p>Short, visual explainers for Instagram and community outreach, from cosmic questions to practical science myths.</p>
+              </div>
+            </article>
+            <article class="format-row">
+              <span class="format-number">4</span>
+              <div>
+                <h3>Festivals and community events</h3>
+                <p>Booths, mini-talks, audience activities, telescope evenings, and guided discussions for mixed-age groups.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="photo-section" id="public-talks">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Recent public talk</p>
+            <h2>Science in a bar, with a real audience.</h2>
+          </div>
+          <p class="section-copy">
+            These photos are from a public lecture in a bar setting: cosmology,
+            particle physics, slides, audience questions, and the kind of room
+            where science becomes a conversation.
+          </p>
+        </div>
+
+        <div class="photo-grid">
+          <figure class="photo-tile large">
+            <img src="assets/photos/bar-talk-mic.webp" alt="Supriyo speaking into a microphone during a bar science lecture." loading="lazy">
+            <figcaption>Talks that bring science into public spaces</figcaption>
+          </figure>
+          <figure class="photo-tile">
+            <img src="assets/photos/bar-talk-room.webp" alt="Audience seated in a bar while a cosmology slide is projected." loading="lazy">
+            <figcaption>Cosmology for a live audience</figcaption>
+          </figure>
+          <figure class="photo-tile">
+            <img src="assets/photos/bar-talk-cosmic-slide.webp" alt="Projected timeline of the universe during a public talk." loading="lazy">
+            <figcaption>Visual stories about the universe</figcaption>
+          </figure>
+          <figure class="photo-tile wide">
+            <img src="assets/photos/bar-talk-audience.webp" alt="Wide view of a public science lecture in a bar with audience members watching." loading="lazy">
+            <figcaption>Public talks, audience Q and A, and accessible explanations</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Possible talk themes</p>
+            <h2>From black holes to everyday physics.</h2>
+          </div>
+          <p class="section-copy">
+            Topics can be tuned for children, teenagers, college students,
+            adults, or mixed public audiences. The goal is always the same:
+            keep the science honest and the experience alive.
+          </p>
+        </div>
+
+        <div class="grid topic-grid">
+          <div class="topic">
+            <strong>The universe in one hour</strong>
+            <span>Cosmic scale, galaxies, time, and where we fit in.</span>
+          </div>
+          <div class="topic">
+            <strong>Black holes without fear</strong>
+            <span>Gravity, spacetime, event horizons, and why black holes matter.</span>
+          </div>
+          <div class="topic">
+            <strong>How to think like a scientist</strong>
+            <span>Questions, evidence, doubt, mistakes, and better reasoning.</span>
+          </div>
+          <div class="topic">
+            <strong>Astronomy for beginners</strong>
+            <span>Stars, planets, Moon phases, telescopes, and sky maps.</span>
+          </div>
+          <div class="topic">
+            <strong>Physics hiding in daily life</strong>
+            <span>Motion, light, sound, heat, electricity, and surprising patterns.</span>
+          </div>
+          <div class="topic">
+            <strong>Science, society, and wonder</strong>
+            <span>Why public understanding of science matters now.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="workshops">
+      <div class="section-inner split">
+        <div>
+          <p class="section-kicker">Astronomy workshops</p>
+          <h2>Hands on, eyes up, questions welcome.</h2>
+          <p class="section-copy">
+            Workshops can include telescope basics, observing plans, star maps,
+            Moon and planet sessions, scale-of-the-universe activities, and
+            guided conversations about what people are seeing.
+          </p>
+          <ul class="pill-list" aria-label="Workshop options">
+            <li>Telescope setup</li>
+            <li>Moon observing</li>
+            <li>Star maps</li>
+            <li>Planet nights</li>
+            <li>Space activities</li>
+            <li>Student clubs</li>
+          </ul>
+        </div>
+        <div class="image-frame">
+          <img src="assets/photos/bar-talk-room.webp" alt="Audience watching an astronomy and cosmology talk in a bar venue." loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">For organizers</p>
+            <h2>Easy to bring into your school, venue, or event.</h2>
+          </div>
+          <p class="section-copy">
+            Share the audience, age group, venue, date, and what you want people
+            to leave with. The session can be shaped for inspiration, learning,
+            discussion, hands-on activity, or a strong public talk.
+          </p>
+        </div>
+
+        <div class="grid work-grid">
+          <article class="card">
+            <h3>Tell me the audience</h3>
+            <p>School students, college groups, families, adults, science clubs, teachers, or public audiences.</p>
+          </article>
+          <article class="card">
+            <h3>Pick the format</h3>
+            <p>Talk, workshop, video collaboration, astronomy night, festival booth, or public science conversation.</p>
+          </article>
+          <article class="card">
+            <h3>Choose the science</h3>
+            <p>Astronomy, cosmology, physics, science communication, critical thinking, or a custom theme.</p>
+          </article>
+          <article class="card">
+            <h3>Make it memorable</h3>
+            <p>Clear visuals, simple demos, audience participation, and a tone that makes people want to ask more.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="merch" id="merch">
+      <div class="section-inner">
+        <div class="merch-panel">
+          <div class="image-frame">
+            <img src="assets/science-merch-tshirts.png" alt="Folded science-themed T-shirts with minimal constellation, telescope, and orbital designs." loading="lazy">
+          </div>
+          <div>
+            <p class="section-kicker">Merchandise</p>
+            <h2>Science merch for outreach groups.</h2>
+            <p class="section-copy">
+              T-shirts and science-inspired merchandise for students, workshop
+              crews, science clubs, event teams, and community programs that
+              want clean, minimal science designs.
+            </p>
+            <p class="price-note">T-shirts, event merch, and custom science club orders</p>
+            <ul class="detail-list">
+              <li>Science and astronomy designs</li>
+              <li>Great for school clubs and outreach events</li>
+              <li>Message for sizes, colors, availability, and bulk orders</li>
+            </ul>
+            <div class="section-actions merch-actions">
+              <a class="button primary" href="https://www.instagram.com/50_shades_of_science/" target="_blank" rel="noreferrer">Buy or ask on Instagram</a>
+              <a class="button secondary" href="#contact">Ask about custom merch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section-inner">
+        <p class="section-kicker">Contact</p>
+        <h2>Need a science talk, school session, workshop, video, or T-shirt order?</h2>
+        <p class="section-copy">
+          Send a message with your venue, audience, date, preferred format, and
+          the kind of science you want people to experience. I can help shape
+          the right session for your school, bar, public event, club, festival,
+          or online audience.
+        </p>
+        <div class="section-actions">
+          <a class="button primary" href="https://www.instagram.com/50_shades_of_science/" target="_blank" rel="noreferrer">Message @50_shades_of_science</a>
+          <a class="button secondary" href="#work">Explore outreach options</a>
+        </div>
+
+        <div class="contact-grid" aria-label="Contact reasons">
+          <div class="contact-card">
+            <strong>Book a session</strong>
+            <span>Talks, public lectures, classroom visits, and college programs.</span>
+          </div>
+          <div class="contact-card">
+            <strong>Plan a workshop</strong>
+            <span>Astronomy, telescopes, skywatching, student clubs, and demos.</span>
+          </div>
+          <div class="contact-card">
+            <strong>Order merch</strong>
+            <span>T-shirts, group orders, event merchandise, and custom ideas.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>50 Shades of Science</span>
+      <a href="https://www.instagram.com/50_shades_of_science/" target="_blank" rel="noreferrer">@50_shades_of_science</a>
+    </div>
+  </footer>
 </body>
 </html>

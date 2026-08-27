@@ -1,0 +1,110 @@
+Things needed to be done before 26th June 
+   
+----------------------------------------- Paper Work -------------------------------------------
+      1) Write the proposal for Phd Thesis , Review, submission, take signature.
+      2) Visa Processes will be done by today
+      3) Keep all the bills in one place
+      4) Submit the contigency
+      
+
+----------------------------------------- Phd Work -------------------------------------------
+      1) Verify the analytical test (Lyman alpha Double peaked)
+      2) Plot the velocity filed along the line of sight
+      3) Fix the part file Stellar mass and velocty unit check
+      4) Hydro file one last time unit checks and write in a document 
+      5) Lyman alpha Convergence test for different no of Photons
+      6) Take halos from Ranit and run Rascas
+      7) Make detailed slide of each Processes of RASCAS 
+                           a) Lya PhotonFromGas (Recombination, Collision)
+                           b) PhotonFromStars (Different processes of implementing inital spectra)
+                           c) Domain Creation(Need to be figured out detailly)
+                           d) Dust Model Implementation
+                           e) Voigt profile
+                           f) Monte Carlo run (Assigning Photons, master worker, peeling off)
+                           g) Spectra Generation 
+                           h) Different Direction generation 
+                           g) Plotting scripts
+
+      8) Implementation Of CIC method to convert GADGET to RAMSES 
+                           a) Comparison of spectra with same level outputs
+                           b) plot spectra and check the differences
+      
+      9) Set up Cluster Pipeline
+
+
+----------------------------------------- Science Communication -------------------------------------------
+      0) Find If there are places in France where you can give science communication talks(School and Other Places) 
+      1) Finish the video of OLBER Paradox
+      2) Make script for Ashoke Sen Podcast
+      3) Reionization Slides And script
+      4) Practice the current script of BIG BANG TO US
+      5) Contact Schools and Organization for making money 
+      6) Work on the 50 shades of science website
+      7) T-shirt Merchandise (set up the pipeline)
+      8) Buy things from the website and booking link in website 
+      9) The frame of cosmic calendar to Sell in the website
+     10) Start Thinking about the book writing for school student , very creative and all cool images (By next year it should be done)
+                            a) Use Claude and ChatGpts full limits for design and creativity
+                            b) It should be attractive
+     
+     11)Long Video Ideas(Bucket List)
+           a) Ashoke Sen Interview
+           b) Subir Sarkar Interview
+           c) GMRT Video
+           d) Quantum Computers 
+           e) Shiraz Minwala Interview
+           f) Peletron Laborotary
+           g) Find Any Nobel Prize Winners in France and make videos about that 
+           h) Prof. Mohan Maharaz Interview
+           i) Ooty Video Shoot
+           j) Hanle Telescope
+           k) Ligo-India 
+           l) David Tong
+           m) 
+
+      12) Contact Bengaluru Studio Rental
+      13) Fos/Nsd video making 
+      14) Ice-Cube Experiment 
+      15) Talk On AI-ChatGpt
+      16) Make Studio your room (If possible then do for the podcast)
+                a) Paint
+                b) Lighting 
+                c) background 
+                
+
+      17) Try to sell One Cosmic Calendar In Paris Or find a way to do it
+
+      
+
+
+----------------------------------------- Gym -------------------------------------------
+      1) Buy Hevy subscription
+      2) Make customize routines for calisthenics 
+      3) Keep Track of everyday activity
+      4) keep track of Daily Calorie
+      5) Don't think too much about the result, just keep going.
+      6) 
+
+
+
+
+----------------------------------------- Communication Skill -------------------------------------------
+      1) Work On Body Language
+      2) Work on Pronouncation
+      3) Daily Voice Exercise in vocal image or stimulator
+      4) watch videos to improve body language
+
+
+
+
+----------------------------------------- Time Remaining -------------------------------------------
+       22-26 
+
+       
+
+
+----------------------------------------- Things to buy -------------------------------------------
+       1) Iphone
+       2) Camera
+       3) Ring Light
+       4) Audio Recorder Over the head
