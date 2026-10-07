@@ -46,10 +46,15 @@ body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:
 .format-rows strong{font-family:var(--body);font-weight:700;font-size:clamp(18px,1.9vw,25px);line-height:1.15;letter-spacing:.02em;color:#082d5e}
 .format-rows em{font-family:var(--body);font-size:13.5px;font-weight:500;color:var(--soft)}
 .format-rows span,.format-rows a:hover{color:#b07008}
-.room{min-height:auto;display:grid;grid-template-columns:minmax(320px,.95fr) 1.05fr;align-items:stretch;background:#eef7ff;border-block:1px solid var(--line)}
-.room-photo{min-height:0;height:100%;max-height:640px;overflow:hidden;background:#dce9f8;display:flex;align-items:center;justify-content:center}
-.room-photo img{width:100%;height:100%;max-height:640px;aspect-ratio:3/4;object-fit:cover;object-position:center 20%;display:block}
-.room-copy{padding:clamp(40px,6vw,75px) clamp(30px,6vw,70px);background:radial-gradient(circle at 90% 15%,#dceeff 0,transparent 40%),#f4faff}
+.room{background:transparent;padding-block:60px;min-height:auto}
+.room-inner{display:grid;grid-template-columns:360px 1fr;gap:45px;align-items:center;background:#eef7ff;border:1px solid #cce1f7;border-radius:14px;padding:36px 40px;box-shadow:0 10px 30px rgba(10,48,100,.04)}
+.room-photo{width:100%;max-width:360px;height:420px;border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(6,25,61,.1);border:1px solid #bdd7f5}
+.room-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.room-copy{padding:0;background:transparent}
+.room-copy .kicker{margin-bottom:12px}
+.room-copy h2{font-size:clamp(28px,3vw,42px);margin-bottom:16px}
+.room-copy p{font-size:16.5px;color:var(--soft);line-height:1.6;margin-bottom:24px;max-width:520px}
+.photo-note{display:block;margin-top:20px;color:#6b85a6;font-size:11px}
 .school-panel{background:#f2f8ff;border-left:4px solid #d49422;padding:35px 38px}
 .school-panel ul{list-style:none;margin:27px 0;padding:0;border-top:1px solid #c5d9ef}
 .school-panel li{font-family:var(--body);font-weight:700;font-size:18.5px;line-height:1.3;letter-spacing:.04em;color:#062354;padding:17px 0;border-bottom:1px solid #c5d9ef}
@@ -101,8 +106,8 @@ body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:
 .about-grid>img{object-fit:cover;object-position:center 28%}
 @media(max-width:1050px){
 .film-grid{grid-template-columns:repeat(2,1fr);gap:22px}
-.room{grid-template-columns:1fr;min-height:auto}
-.room-photo{max-height:480px}
+.room-inner{grid-template-columns:1fr;gap:30px;padding:30px}
+.room-photo{max-width:320px;height:380px;margin:0 auto}
 .about-grid{grid-template-columns:1fr;gap:35px}
 .about-photo{max-width:320px;height:400px;margin:0 auto}
 }
@@ -114,10 +119,11 @@ body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:
 .hero-intro{grid-template-columns:1fr;gap:15px;padding-block:36px 42px}
 .hero-intro h2{font-size:clamp(37px,9vw,56px)}
 .hero-intro>div:last-child>p{font-size:16.5px}
-.section-shell h2,.room h2{font-size:clamp(42px,10vw,65px)}
+.section-shell h2,.room h2{font-size:clamp(32px,8vw,44px)}
 .film-grid{grid-template-columns:1fr;gap:26px}
 .film h3{font-size:24px}
-.room-photo{max-height:380px}
+.room-inner{padding:24px 20px}
+.room-photo{max-width:100%;height:320px}
 .about-cards-row{grid-template-columns:1fr;gap:14px}
 .about-photo{max-width:100%;height:360px}
 .about-copy h2{font-size:clamp(30px,7.5vw,42px)}
