@@ -116,7 +116,7 @@
   <script>
     document.querySelectorAll(".topic").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".topic").forEach(item=>item.classList.remove("active"));button.classList.add("active");document.querySelector("#topic-copy").textContent=button.dataset.copy;}));
     const modal=document.querySelector("#success-modal"); document.querySelector(".close").addEventListener("click",()=>modal.classList.remove("open")); modal.addEventListener("click",event=>{if(event.target===modal)modal.classList.remove("open")});
-    document.querySelector("#booking-form").addEventListener("submit",event=>{event.preventDefault();const form=new FormData(event.currentTarget);const subject=encodeURIComponent("Science session enquiry from "+form.get("name"));const body=encodeURIComponent("Name: "+form.get("name")+"\nEmail: "+form.get("email")+"\n\n"+form.get("brief"));window.location.href=`mailto:50shadesofscience@gmail.com?subject=${subject}&body=${body}`;modal.classList.add("open");});
+    document.querySelector("#booking-form").addEventListener("submit",event=>{event.preventDefault();const form=new FormData(event.currentTarget);const subject=encodeURIComponent("Science session enquiry from "+form.get("name"));const body=encodeURIComponent("Name: "+form.get("name")+"\nEmail: "+form.get("email")+"\n\n"+form.get("brief"));window.location.href=`mailto:fiftyshadesofscience1@gmail.com?subject=${subject}&body=${body}`;modal.classList.add("open");});
   </script>
 </body>
 </html>

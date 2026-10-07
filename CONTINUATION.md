@@ -7,7 +7,7 @@
 - Updated the eight supporting pages to share the banner-inspired visual system.
 - Preserved the original project and media in Git history. The published copy is on `main`.
 - Added web-compressed versions of existing IceCube and optogenetics reels, both with audio and poster frames.
-- Added a detailed booking form that prepares an email to `50shadesofscience@gmail.com`; no data is stored by the site.
+- Added a detailed booking form that prepares an email to `fiftyshadesofscience1@gmail.com`; no data is stored by the site.
 - Added page-specific titles/descriptions, social metadata, semantic structure, skip link, focus states, and organisation structured data.
 - Labeled the CSR reach figures as an illustrative pilot, and identified 50 Shades of Science as independent from TIFR.
 
