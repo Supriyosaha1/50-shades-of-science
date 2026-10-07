@@ -1,0 +1,101 @@
+:root{--paper:#fffdfa;--white:#fff;--ink:#061533;--soft:#1e355b;--line:#cbdcf0;--accent:#b07008;--sand:#f7faff;--ice:#eaf4ff;--display:'Bodoni Moda',Georgia,'Times New Roman',serif;--body:'Montserrat',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;--mono:'Montserrat',ui-monospace,SFMono-Regular,Menlo,monospace}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16.5px;font-weight:450;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+.header{background:rgba(255,253,250,.98);border-color:#d8e4f3;backdrop-filter:blur(14px)}.header-inner{height:76px}
+.brand-mark{font-family:var(--display);font-size:46px;font-weight:700;line-height:.9;letter-spacing:-.05em;color:#074eaf}
+.brand-name{font-family:var(--body);font-size:12px;font-weight:700;line-height:1.15;letter-spacing:.08em;color:var(--ink)}
+.brand-dot,.footer-logo span{color:#d49422}
+.header nav a{font-family:var(--body);font-size:13.5px;font-weight:600;color:var(--ink);letter-spacing:.02em}
+.header nav a:hover{color:#0864c5}
+.header-cta,.solid-button{background:#0c3673;color:#fff;font-family:var(--body);font-weight:700;font-size:12px;letter-spacing:.08em}
+.header-cta:hover,.solid-button:hover{background:#075cc0}
+.kicker,.section-number,.small-link,.film-meta,.photo-note,.panel-top,.panel-bottom,.hero-foot,.portrait-label,.talk-inset figcaption,.hero-index,.ticker,.header-cta,.footer{font-family:var(--body);font-weight:700;letter-spacing:.1em}
+.kicker{color:#8c5202;font-size:12px}.signal{background:#d49422}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.brand-hero{width:min(100%,1800px);margin-inline:auto;background:#fff;position:relative}
+.brand-hero img{display:block;width:100%;height:auto}
+.brand-mobile-title{display:none}
+.hero-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:8%;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:55px 62px}
+.hero-intro .kicker{margin:0 0 17px}
+.hero-intro h2{font-family:var(--display);font-weight:700;font-size:clamp(40px,4.5vw,67px);line-height:1.12;letter-spacing:-.015em;margin:0;color:#06193d}
+.hero-intro>div:last-child>p{font-size:18px;font-weight:450;color:var(--soft);max-width:490px;margin-bottom:23px;line-height:1.6}
+.hero-intro .hero-actions{gap:22px}
+.solid-button,.header-cta{border-radius:4px}
+.under-link,.small-link{color:#0a5bb5;border-color:#accbef;font-weight:600;font-size:12px}
+.under-link:hover,.small-link:hover{color:#b07008;border-color:#b07008}
+.ticker{background:#f4f9ff;border-color:#cadff5;color:#173d75;font-weight:700;font-size:12px}
+.ticker i{color:#d49422}
+.section-top{border-top-color:#9dbadd}
+.section-shell h2,.room h2,.page-intro h1,.section h2,.photo-band h2,.about-grid h2,.contact-aside h2,.video-copy h2{font-family:var(--display);font-weight:700;line-height:1.12;letter-spacing:-.015em;color:#06193d}
+.section-shell h2,.room h2{font-size:clamp(46px,5.5vw,78px)}
+.section-title-row>p,.formats-lead,.film p,.room-copy>p:not(.kicker),.schools-grid p,.about-copy p,.partners-grid p,.contact-grid>div>p{color:var(--soft);font-weight:450;font-size:18px;line-height:1.6}
+.subject-list span{border-color:#c7ddf4;background:#fbfdff;color:#164377;font-weight:600;font-size:12px}
+.film>a{background:#ecf6ff;border-radius:6px}
+.film-arrow{border-radius:50%;color:#0a56ac}
+.film-meta{color:#8c5202;font-size:11.5px;font-weight:700}
+.film h3{font-family:var(--display);font-weight:700;font-size:clamp(29px,3vw,43px);line-height:1.13;letter-spacing:-.015em;color:#06193d}
+.format-rows{border-top-color:#95b8e5}
+.format-rows strong{font-family:var(--display);font-weight:700;font-size:clamp(21px,2.1vw,30px);line-height:1.08;color:#082d5e}
+.format-rows em{font-family:var(--body);font-size:13px;font-weight:500;color:var(--soft)}
+.format-rows span,.format-rows a:hover{color:#b07008}
+.room{background:#eef7ff}
+.room-copy{background:radial-gradient(circle at 90% 15%,#dceeff 0,transparent 35%),#f4faff}
+.school-panel{background:#f2f8ff;border-left:4px solid #d49422}
+.school-panel ul,.school-panel li{border-color:#c5d9ef}
+.school-panel li{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.2;color:#062354}
+.panel-top,.panel-bottom{color:#8c5202;font-weight:700}
+.about-copy h2{font-size:clamp(48px,5vw,73px)}
+.about-copy small{color:#314a6e;font-size:13px;font-weight:500;line-height:1.5}
+.home-form,.booking-form{border-color:#cbdcf0;box-shadow:0 12px 32px rgba(10,48,100,.05)}
+.home-form label,.booking-form label{font-size:13px;font-weight:600;color:#06193d}
+.home-form input,.home-form select,.home-form textarea,.booking-form input,.booking-form select,.booking-form textarea{background:#fcfdff;border-color:#b5cbe3;color:#06193d;font-size:15px}
+.home-form :is(input,select,textarea):focus,.booking-form :is(input,select,textarea):focus{outline-color:#1267c7;border-color:#1267c7}
+.email-link{font-size:clamp(20px,2.2vw,25px);font-weight:700;color:#075bb8;text-decoration:underline;text-underline-offset:4px}
+.email-link:hover{color:#b07008}
+.footer{background:#f0f7ff;color:#06193d;border-top:1px solid #c7dbef}
+.footer-main>div a{border-color:#4074b4;font-weight:600;font-size:13px}
+.footer-bottom{border-color:#c7dbef;color:#38557a;font-weight:600}
+.footer a:hover{color:#b07008}
+.footer-main p{font-family:var(--display);font-weight:700;font-size:clamp(34px,4vw,60px);line-height:1.12;letter-spacing:-.015em;color:#06193d}
+.footer-logo{font-family:var(--display);font-weight:700;color:#0a51a4}
+.page-intro h1{font-size:clamp(45px,5vw,72px)}
+.page-intro .deck{color:var(--soft);font-size:20px;line-height:1.6}
+.eyebrow{font-family:var(--body);font-weight:700;letter-spacing:.12em;color:#8c5202;font-size:12px}
+.section h2,.photo-band h2,.about-grid h2,.video-copy h2{font-size:clamp(43px,4.5vw,67px)}
+.card{border-color:#cbdcf0;box-shadow:0 9px 26px rgba(10,48,100,.04)}
+.card h3{font-family:var(--display);font-weight:700;line-height:1.15;letter-spacing:-.01em;color:#06193d}
+.card p,.section-body p,.video-copy p{color:var(--soft);font-weight:450;font-size:16px;line-height:1.6}
+.quote-band{background:#eef7ff}
+.quote-band blockquote{font-family:var(--display);font-weight:700;line-height:1.15;color:#082d5e}
+.pilot-grid>div{border-color:#cbdcf0}
+.pilot-grid span{font-family:var(--display);font-weight:700;color:#0b58ae}
+.detail-list{border-color:#8fb5df}
+.detail-list strong{font-family:var(--display);font-weight:700;color:#082d5e}
+.button{background:#0c3673;border-radius:4px}
+.button:hover{background:#075cc0}
+.text-link{color:#0a5dbb;border-color:#9fc2ea;font-weight:600}
+.text-link:hover{color:#b07008;border-color:#b07008}
+.about-grid>img{object-fit:cover;object-position:center 28%}
+@media(max-width:760px){
+.brand-hero{display:flex;flex-direction:column}
+.brand-mobile-title{display:block;text-align:center;padding:25px 14px 5px;background:linear-gradient(180deg,#fffdfa,#f7fbff);color:#06193d;font:700 clamp(26px,7.5vw,38px)/1.07 var(--display);letter-spacing:-.02em}
+.brand-mobile-title strong{display:block;font-size:1.75em;color:#075bb8;font-weight:700}
+.brand-hero img{height:365px;width:100%;object-fit:cover;object-position:78% center}
+.hero-intro{grid-template-columns:1fr;gap:15px;padding-block:36px 42px}
+.hero-intro h2{font-size:clamp(37px,9vw,56px)}
+.hero-intro>div:last-child>p{font-size:16.5px}
+.section-shell h2,.room h2{font-size:clamp(42px,10vw,65px)}
+.film h3{font-size:37px}
+.about-copy h2{font-size:clamp(44px,9vw,62px)}
+.footer-main p{font-size:46px}
+.page-intro h1{font-size:clamp(43px,9vw,63px)}
+.section h2,.photo-band h2,.about-grid h2,.video-copy h2{font-size:clamp(41px,9vw,60px)}
+}
+@media(max-width:480px){
+.brand-hero img{height:320px;object-position:75% center}
+.brand-mobile-title{font-size:29px}
+.brand-mobile-title strong{font-size:1.65em}
+.section-shell h2,.room h2{font-size:48px}
+.film h3{font-size:33px}
+.footer-main p{font-size:42px}
+}

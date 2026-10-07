@@ -2,9 +2,10 @@
 
 ## Completed
 
-- Rebuilt `index.html` by hand as a continuous-scroll homepage with Barlow Condensed and Public Sans, warm light surfaces, and Supriyo's real portrait and speaking photographs.
-- Updated the eight supporting pages to match the homepage visual system.
-- Preserved the original project and media. This copy is on branch `redesign/light-editorial`.
+- Rebuilt `index.html` by hand as a continuous-scroll homepage and then aligned it to the supplied brand banner using Bodoni Moda, Montserrat, a bright white background, and blue-and-gold accents.
+- Removed the old gray-shirt portrait from the published site. The homepage now uses the supplied banner with Supriyo's newer black-shirt image; the About section keeps a real event photograph.
+- Updated the eight supporting pages to share the banner-inspired visual system.
+- Preserved the original project and media in Git history. The published copy is on `main`.
 - Added web-compressed versions of existing IceCube and optogenetics reels, both with audio and poster frames.
 - Added a detailed booking form that prepares an email to `50shadesofscience@gmail.com`; no data is stored by the site.
 - Added page-specific titles/descriptions, social metadata, semantic structure, skip link, focus states, and organisation structured data.
@@ -13,10 +14,10 @@
 ## Before publication
 
 - Canonical URLs and the sitemap use the existing GitHub Pages address; update them if the domain changes.
-- Confirm whether the founder portrait and event photographs are approved for public use.
+- Confirm that the supplied banner and event photographs are approved for public use.
 - Review the final wording and reel audio for scientific accuracy and brand voice.
 - If desired, connect a form endpoint so enquiries can be sent without a local email application.
-- Push or merge this branch into the GitHub Pages deployment branch after review.
+- Verify the new banner treatment on the live GitHub Pages site.
 
 ## Limits
 
