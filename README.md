@@ -1,6 +1,6 @@
 # 50 Shades of Science website
 
-An independent, static multipage website for 50 Shades of Science. The current design uses a light background, contemporary typography, real science imagery, and event photography. It is ready for GitHub Pages or any static host; there is no build dependency.
+An independent science communication website. The homepage is a continuous-scroll experience with real founder and event photography. The supporting pages provide more detail. It is ready for GitHub Pages or any static host; there is no build dependency.
 
 ## Preview
 
@@ -8,8 +8,11 @@ Run `python3 -m http.server 8765` in this directory, then open `http://localhost
 
 ## Edit
 
-- `build_site.py` contains page copy and shared page structure. Run `python3 build_site.py` after editing it.
-- `assets/css/site-v2.css` contains the current layout and theme. The older stylesheet remains for reference.
+- `index.html` is the hand-edited continuous-scroll homepage. Do not generate over it.
+- `assets/css/home.css` contains the homepage layout and visual system.
+- `build_site.py` contains the eight supporting pages. Run `python3 build_site.py` after editing those pages.
+- `assets/css/pages.css` extends the same visual system to the supporting pages.
+- Earlier stylesheets remain for reference and are not loaded.
 - `assets/js/site.js` handles the mobile menu and contact email form.
 - `assets/media` contains compressed web versions of two local reels and a founder portrait. The source files remain in their original folders.
 
@@ -17,4 +20,4 @@ The site includes Home, Science, Videos, School Programmes, Future Scientists, C
 
 ## Deploy
 
-This repository was copied from the existing GitHub Pages source. Review the redesign branch, merge it into the deployment branch, and push to the repository when ready. Canonical links and the sitemap point to the existing GitHub Pages URL. The enquiry form opens the visitor's email application; a server-side form service can be added later if needed.
+Canonical links and the sitemap point to the existing GitHub Pages URL. The enquiry form opens the visitor's email application; a server-side form service can be added later if needed.
