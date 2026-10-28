@@ -1,0 +1,846 @@
+/* ==========================================================================
+   ML Visual Textbook - Balanced Educational Design (Classes 5-10)
+   "In Between": Clean, structured cards, warm visual hierarchy, zero clutter.
+   Combines whiteboard clarity with tactile, engaging learning cards.
+   ========================================================================== */
+
+.mlk-reader {
+  --mlk-bg: #f8fafc;
+  --mlk-surface: #ffffff;
+  --mlk-surface-alt: #f1f5f9;
+  --mlk-surface-accent: #eff6ff;
+  --mlk-border: #e2e8f0;
+  --mlk-border-subtle: #edf2f7;
+  --mlk-text-title: #0f172a;
+  --mlk-text-body: #334155;
+  --mlk-text-muted: #64748b;
+  --mlk-primary: #2563eb;
+  --mlk-primary-hover: #1d4ed8;
+  --mlk-primary-light: #eff6ff;
+  --mlk-success: #059669;
+  --mlk-success-light: #ecfdf5;
+  --mlk-radius: 16px;
+  --mlk-radius-md: 12px;
+  --mlk-radius-sm: 8px;
+  --mlk-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--mlk-text-body);
+  background-color: var(--mlk-bg);
+  line-height: 1.65;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mlk-reader *,
+.mlk-reader *::before,
+.mlk-reader *::after {
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Top Sticky Header
+-------------------------------------------------------------------------- */
+.mlk-header {
+  border-bottom: 1px solid var(--mlk-border);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 54px;
+}
+
+.mlk-header-inner {
+  max-width: 1080px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mlk-toc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--mlk-surface);
+  border: 1px solid var(--mlk-border);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mlk-text-title);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.mlk-toc-btn:hover {
+  background: var(--mlk-surface-alt);
+  border-color: #cbd5e1;
+}
+
+.mlk-header-center {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mlk-header-progress {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--mlk-text-muted);
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+  background: var(--mlk-surface-alt);
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid var(--mlk-border);
+}
+
+.mlk-senior-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mlk-primary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.mlk-senior-link:hover {
+  color: var(--mlk-primary-hover);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Focused Centered Column & Cards ("In Between" Sweet Spot)
+-------------------------------------------------------------------------- */
+.mlk-main {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 5rem;
+}
+
+/* Base Card Style */
+.mlk-card {
+  background: var(--mlk-surface);
+  border: 1px solid var(--mlk-border);
+  border-radius: var(--mlk-radius);
+  box-shadow: var(--mlk-shadow);
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Friendly Badges */
+.mlk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.mlk-badge-primary {
+  background: var(--mlk-primary-light);
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.mlk-badge-success {
+  background: var(--mlk-success-light);
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+/* --------------------------------------------------------------------------
+   1. Concept Header Card
+-------------------------------------------------------------------------- */
+.mlk-concept-card {
+  border-top: 4px solid var(--mlk-primary);
+}
+
+.mlk-concept-meta {
+  margin-bottom: 0.65rem;
+}
+
+.mlk-concept-title {
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: var(--mlk-text-title);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 0.85rem;
+}
+
+.mlk-concept-question {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e40af;
+  line-height: 1.45;
+  margin: 0 0 0.75rem;
+}
+
+.mlk-concept-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--mlk-text-body);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Interactive Visual Lab Card
+-------------------------------------------------------------------------- */
+.mlk-lab-card {
+  padding: 1.5rem 1.75rem;
+}
+
+.mlk-lab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+  font-size: 0.85rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Mode Switcher Tabs */
+.mlk-lab-modes {
+  display: flex;
+  background: var(--mlk-surface-alt);
+  padding: 3px;
+  border-radius: 9999px;
+  border: 1px solid var(--mlk-border);
+  gap: 3px;
+}
+
+.mlk-mode-btn {
+  border: none;
+  background: transparent;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mlk-text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.15s ease;
+}
+
+.mlk-mode-btn:hover {
+  color: var(--mlk-text-title);
+}
+
+.mlk-mode-btn.active {
+  background: var(--mlk-surface);
+  color: var(--mlk-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Video Animation View */
+.mlk-anim-view {
+  width: 100%;
+  border-radius: var(--mlk-radius-md);
+  overflow: hidden;
+  border: 1px solid var(--mlk-border);
+  background: #0f172a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.mlk-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+  background: #0f172a;
+}
+
+.mlk-video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  display: block;
+}
+
+.mlk-video-bar {
+  background: #1e293b;
+  padding: 0.65rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mlk-video-caption {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.mlk-mini-replay-btn {
+  background: #334155;
+  border: 1px solid #475569;
+  color: #f8fafc;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.mlk-mini-replay-btn:hover {
+  background: #475569;
+}
+
+.mlk-lab-hint {
+  font-weight: 600;
+  color: var(--mlk-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Floating Zoom Bar */
+.mlk-zoom-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--mlk-surface-alt);
+  border: 1px solid var(--mlk-border);
+  border-radius: var(--mlk-radius-sm);
+  padding: 2px 4px;
+}
+
+.mlk-mini-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--mlk-text-title);
+  padding: 2px 7px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.mlk-mini-btn:hover {
+  background: #e2e8f0;
+}
+
+.mlk-zoom-val {
+  font-size: 0.72rem;
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--mlk-text-muted);
+  padding: 0 4px;
+}
+
+/* Whiteboard Canvas */
+.mlk-canvas {
+  width: 100%;
+  min-height: 330px;
+  background: #fafafa;
+  border: 1px solid var(--mlk-border);
+  border-radius: var(--mlk-radius-md);
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Controls Underneath Canvas */
+.mlk-controls {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.mlk-control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #ffffff;
+  border: 1px solid var(--mlk-border);
+  padding: 0.5rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--mlk-text-title);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.mlk-control-btn:hover {
+  background: var(--mlk-surface-alt);
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+.mlk-control-btn.active {
+  background: var(--mlk-primary-light);
+  border-color: var(--mlk-primary);
+  color: var(--mlk-primary);
+}
+
+.mlk-control-btn.primary {
+  background: var(--mlk-primary);
+  border-color: var(--mlk-primary);
+  color: #ffffff;
+}
+
+.mlk-control-btn.primary:hover {
+  background: var(--mlk-primary-hover);
+}
+
+.mlk-slider-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mlk-text-body);
+  background: var(--mlk-surface-alt);
+  padding: 0.4rem 0.95rem;
+  border-radius: 9999px;
+  border: 1px solid var(--mlk-border);
+}
+
+.mlk-slider-group input[type="range"] {
+  accent-color: var(--mlk-primary);
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   3. Step-by-Step Educational Deep Dive Card
+-------------------------------------------------------------------------- */
+.mlk-explanation-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mlk-observe-section {
+  background: #f8fafc;
+  border: 1px solid var(--mlk-border);
+  border-left: 4px solid var(--mlk-primary);
+  border-radius: 0 var(--mlk-radius-md) var(--mlk-radius-md) 0;
+  padding: 1.25rem 1.5rem;
+}
+
+.mlk-mechanism-section {
+  padding: 0.25rem 0.5rem 0;
+}
+
+.mlk-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.65rem;
+}
+
+.mlk-section-icon {
+  font-size: 1.1rem;
+}
+
+.mlk-section-heading {
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mlk-text-title);
+  margin: 0;
+}
+
+.mlk-body-text {
+  font-size: 1.04rem;
+  line-height: 1.72;
+  color: var(--mlk-text-body);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Key Takeaway Card
+-------------------------------------------------------------------------- */
+.mlk-takeaway-card {
+  background: var(--mlk-success-light);
+  border: 1px solid #a7f3d0;
+  border-left: 4px solid var(--mlk-success);
+  border-radius: var(--mlk-radius-md);
+  padding: 1.15rem 1.5rem;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--mlk-shadow);
+}
+
+.mlk-takeaway-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mlk-takeaway-icon {
+  font-size: 1.85rem;
+  line-height: 1;
+}
+
+.mlk-takeaway-kicker {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--mlk-success);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.mlk-takeaway-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #065f46;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   5. Up Next Visual Hook Card (Integrated at Bottom)
+-------------------------------------------------------------------------- */
+.mlk-next-card {
+  background: var(--mlk-surface);
+  border: 1px solid var(--mlk-border);
+  border-radius: var(--mlk-radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--mlk-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.mlk-next-card:hover {
+  border-color: var(--mlk-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -2px rgba(37, 99, 235, 0.1);
+}
+
+.mlk-next-card-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mlk-next-card-icon {
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.mlk-next-card-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--mlk-primary);
+  display: block;
+}
+
+.mlk-next-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--mlk-text-title);
+  margin: 2px 0 3px;
+  line-height: 1.3;
+}
+
+.mlk-next-card-desc {
+  font-size: 0.85rem;
+  color: var(--mlk-text-muted);
+  margin: 0;
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .mlk-next-card-desc {
+    display: block;
+  }
+}
+
+.mlk-next-card-btn {
+  background: var(--mlk-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.mlk-next-card-btn:hover {
+  background: var(--mlk-primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Right-Side Vertical Visual Hook (Desktop Margin Anchor)
+-------------------------------------------------------------------------- */
+.mlk-side-rail {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .mlk-side-rail {
+    display: block;
+    position: fixed;
+    top: 190px;
+    left: calc(50% + 400px);
+    width: 175px;
+    z-index: 30;
+  }
+
+  .mlk-side-rail-card {
+    background: var(--mlk-surface);
+    border: 1px solid var(--mlk-border);
+    border-radius: var(--mlk-radius);
+    padding: 1.25rem 1rem;
+    box-shadow: var(--mlk-shadow);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mlk-side-rail-card:hover {
+    border-color: var(--mlk-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -2px rgba(37, 99, 235, 0.12);
+  }
+
+  .mlk-side-rail-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--mlk-text-muted);
+  }
+
+  .mlk-side-rail-icon {
+    font-size: 2.25rem;
+    line-height: 1;
+    margin: 0.5rem 0 0.35rem;
+    transition: transform 0.2s ease;
+  }
+
+  .mlk-side-rail-card:hover .mlk-side-rail-icon {
+    transform: scale(1.12);
+  }
+
+  .mlk-side-rail-id {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--mlk-primary);
+    display: block;
+  }
+
+  .mlk-side-rail-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--mlk-text-title);
+    line-height: 1.3;
+    margin: 0.2rem 0 0.65rem;
+  }
+
+  .mlk-side-rail-arrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--mlk-primary);
+    padding: 0.25rem 0.7rem;
+    background: var(--mlk-primary-light);
+    border-radius: 9999px;
+    transition: all 0.15s ease;
+  }
+
+  .mlk-side-rail-card:hover .mlk-side-rail-arrow {
+    background: var(--mlk-primary);
+    color: #ffffff;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Footer Navigation
+-------------------------------------------------------------------------- */
+.mlk-nav-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--mlk-border);
+}
+
+.mlk-nav-link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--mlk-primary);
+  text-decoration: none;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--mlk-radius-sm);
+  background: var(--mlk-surface);
+  border: 1px solid var(--mlk-border);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  transition: all 0.12s ease;
+}
+
+.mlk-nav-link:hover {
+  background: var(--mlk-surface-alt);
+  border-color: #cbd5e1;
+}
+
+/* --------------------------------------------------------------------------
+   Table of Contents Drawer
+-------------------------------------------------------------------------- */
+.mlk-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.mlk-drawer-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mlk-drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 85vw;
+  background: var(--mlk-surface);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mlk-drawer-overlay.open .mlk-drawer {
+  transform: translateX(0);
+}
+
+.mlk-drawer-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--mlk-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mlk-drawer-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--mlk-text-title);
+}
+
+.mlk-drawer-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--mlk-text-muted);
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.mlk-drawer-close:hover {
+  color: var(--mlk-text-title);
+}
+
+.mlk-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem 0;
+}
+
+.mlk-drawer-chapter-title {
+  padding: 0.75rem 1.25rem 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mlk-text-muted);
+}
+
+.mlk-drawer-item {
+  display: block;
+  padding: 0.45rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--mlk-text-body);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.12s ease;
+}
+
+.mlk-drawer-item:hover {
+  background: var(--mlk-surface-alt);
+  color: var(--mlk-primary);
+}
+
+.mlk-drawer-item.active {
+  background: var(--mlk-primary-light);
+  color: var(--mlk-primary);
+  font-weight: 700;
+  border-left: 3px solid var(--mlk-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Mobile & Responsive Adjustments
+-------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .mlk-main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .mlk-card {
+    padding: 1.25rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .mlk-concept-title {
+    font-size: 1.7rem;
+  }
+  .mlk-concept-question {
+    font-size: 1.1rem;
+  }
+  .mlk-body-text {
+    font-size: 0.98rem;
+  }
+}

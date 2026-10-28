@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruit Sorting Studio · ML Adventure Lab</title>
+  <meta name="description" content="Can you teach a computer to sort mystery fruits? Drag examples, watch nearest neighbors vote, and discover machine learning.">
+  <link rel="shortcut icon" href="../../images/favicon.ico" title="Favicon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/mlk-styles.css">
+</head>
+<body class="mlk-root">
+
+  <!-- Top Navigation -->
+  <nav class="mlk-navbar" aria-label="Lesson Navigation">
+    <div class="mlk-nav-inner">
+      <a href="index.html" class="mlk-brand">
+        <span style="font-size: 1.3rem;">←</span>
+        <span>Adventure Map</span>
+      </a>
+
+      <!-- Grade Band Switcher -->
+      <div class="mlk-level-switcher" role="group" aria-label="Grade level selection">
+        <button class="mlk-level-btn active" data-level="explorer">Explorer (5–6)</button>
+        <button class="mlk-level-btn" data-level="builder">Builder (7–8)</button>
+        <button class="mlk-level-btn" data-level="investigator">Investigator (9–10)</button>
+      </div>
+
+      <!-- Star Counter -->
+      <div class="mlk-star-counter" aria-label="Collected stars">
+        <span>⭐</span>
+        <span id="starCount">0</span>
+        <span>Stars</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Lesson Container -->
+  <main class="mlk-container">
+
+    <!-- Mission Header -->
+    <div style="margin-bottom: 1.25rem;">
+      <h1 id="missionTitle" style="font-size: 1.6rem; font-weight: 800; color: var(--mlk-text-title); margin: 0 0 0.25rem;">
+        Mission 3: Fruit Sorting Studio
+      </h1>
+      <p id="missionSubtitle" style="margin: 0; color: var(--mlk-text-muted); font-size: 0.95rem;">
+        Can you teach the computer to sort mystery fruits?
+      </p>
+    </div>
+
+    <!-- 6-Beat Step Navigation -->
+    <nav class="mlk-beat-bar" aria-label="Lesson Story Steps">
+      <button class="mlk-beat-step active">1. Wonder 🤔</button>
+      <button class="mlk-beat-step">2. Predict 🎯</button>
+      <button class="mlk-beat-step">3. Labeling 🏷️</button>
+      <button class="mlk-beat-step">4. Brittle Rule ⚠️</button>
+      <button class="mlk-beat-step">5. Learning Machine ✨</button>
+      <button class="mlk-beat-step">6. Reflect & Quiz 🏆</button>
+    </nav>
+
+    <!-- 3-Column Responsive Interactive Grid -->
+    <div class="mlk-lesson-grid">
+
+      <!-- Column 1: Story & Prompt (Left) -->
+      <aside class="mlk-panel" aria-label="Story & Question">
+        <span class="mlk-panel-kicker" id="panelKicker">Beat 1 of 6 · Wonder</span>
+        <h2 class="mlk-panel-title" id="panelTitle">Can you see this mystery fruit?</h2>
+        <p class="mlk-kid-explanation" id="panelStory">
+          Loading story...
+        </p>
+
+        <div style="margin-top: 1rem; padding: 0.75rem; background: #eff6ff; border-radius: var(--mlk-radius-md); border: 1px solid #dbeafe; font-size: 0.825rem; color: #1e40af;">
+          <span id="panelHint">💡 Tip: Look closely at who is nearby!</span>
+        </div>
+
+        <div style="margin-top: 1rem;">
+          <span id="panelBadge" style="display: inline-block; padding: 0.25rem 0.6rem; font-size: 0.75rem; font-weight: 700; border-radius: 9999px; background: var(--mlk-card-alt); color: var(--mlk-text-title);">
+            Story Beat
+          </span>
+        </div>
+      </aside>
+
+      <!-- Column 2: Live Play Space (Center) -->
+      <section class="mlk-panel" style="display: flex; flex-direction: column;" aria-label="Interactive Play Area">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; flex-wrap: wrap; gap: 0.5rem;">
+          <strong style="font-size: 0.95rem; color: var(--mlk-text-title);">
+            Fruit Clue Map: Redness vs. Size
+          </strong>
+          <span style="font-size: 0.78rem; color: var(--mlk-text-muted);">
+            👆 Drag the purple ◌ fruit (or use Arrow keys)
+          </span>
+        </div>
+
+        <!-- SVG Scatter Plot -->
+        <div style="width: 100%; height: 290px; background: #ffffff; border-radius: var(--mlk-radius-md); border: 1px solid var(--mlk-border); overflow: hidden;">
+          <svg id="lessonSvg" viewBox="0 0 500 280" style="width: 100%; height: 100%; cursor: crosshair;">
+            <!-- Axes -->
+            <line x1="50" y1="20" x2="50" y2="240" stroke="#cbd5e1" stroke-width="1.5" />
+            <line x1="50" y1="240" x2="470" y2="240" stroke="#cbd5e1" stroke-width="1.5" />
+            <text x="470" y="260" font-size="11" text-anchor="end" fill="#64748b" font-weight="600">Size →</text>
+            <text x="45" y="25" font-size="11" text-anchor="end" fill="#64748b" font-weight="600">Redness ↑</text>
+
+            <!-- Connectors -->
+            <g id="connectorsGroup"></g>
+
+            <!-- Training points -->
+            <g id="pointsGroup"></g>
+
+            <!-- Movable Query Fruit -->
+            <g id="queryGroup">
+              <circle id="mysteryCircle" cx="240" cy="110" r="14" fill="#7c3aed" fill-opacity="0.25" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="4 2" />
+              <circle id="mysteryCenter" cx="240" cy="110" r="4" fill="#7c3aed" />
+              <text id="mysteryText" x="240" y="92" font-size="11" font-weight="700" text-anchor="middle" fill="#7c3aed">? Mystery</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Interactive Controls -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label for="kNeighborSelect" style="font-size: 0.8rem; font-weight: 600; color: var(--mlk-text-title);">Nearest neighbors:</label>
+            <select id="kNeighborSelect" style="padding: 0.3rem 0.6rem; border-radius: var(--mlk-radius-sm); border: 1px solid var(--mlk-border); font-size: 0.8rem; font-weight: 600; background: white;">
+              <option value="1">1 neighbor</option>
+              <option value="3" selected>3 neighbors</option>
+              <option value="5">5 neighbors</option>
+            </select>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem;">
+            <button id="resetFruitPosBtn" class="mlk-btn mlk-btn-secondary" style="padding: 0.45rem 0.85rem; font-size: 0.85rem;">
+              Reset Position
+            </button>
+            <button id="prevBeatBtn" class="mlk-btn mlk-btn-secondary" style="padding: 0.45rem 0.85rem; font-size: 0.85rem;">
+              ◀ Previous
+            </button>
+            <button id="nextBeatBtn" class="mlk-btn" style="padding: 0.45rem 1rem; font-size: 0.85rem;">
+              Next Step ▶
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Column 3: Discovery & Metrics (Right) -->
+      <aside class="mlk-panel" aria-label="Computer Votes & Results">
+        <span class="mlk-panel-kicker">Neighbor Votes</span>
+        <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--mlk-text-title); margin: 0 0 0.75rem;">
+          Who is Voting?
+        </h3>
+
+        <!-- Tallies -->
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: #ecfdf5; border-radius: var(--mlk-radius-md); font-size: 0.85rem; font-weight: 700; color: #065f46;">
+            <span>● Apples Nearby:</span>
+            <span id="appleVotes">2</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: #fef3c7; border-radius: var(--mlk-radius-md); font-size: 0.85rem; font-weight: 700; color: #92400e;">
+            <span>◆ Oranges Nearby:</span>
+            <span id="orangeVotes">1</span>
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid var(--mlk-border); padding-top: 0.75rem; margin-bottom: 0.75rem;">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--mlk-text-muted); text-transform: uppercase;">
+            Computer's Guess:
+          </div>
+          <div id="predictionBadge" style="margin-top: 0.35rem; display: inline-block; padding: 0.4rem 0.85rem; font-size: 1rem; font-weight: 800; border-radius: var(--mlk-radius-md); background: #ecfdf5; color: #065f46;">
+            ● Apple
+          </div>
+        </div>
+
+        <p id="metricsNote" style="font-size: 0.8rem; color: var(--mlk-text-muted); line-height: 1.5; margin: 0;">
+          Can you see? The closest 3 fruits are casting votes!
+        </p>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <footer class="mlk-footer">
+    <p>
+      ML Adventure Lab · <a href="index.html">← Back to World Map</a> ·
+      <a href="../../projects/gan-concepts-lab.html" target="_blank" rel="noopener">Senior ML Notes</a>
+    </p>
+  </footer>
+
+  <script type="module" src="js/lesson-shell.js"></script>
+</body>
+</html>
+

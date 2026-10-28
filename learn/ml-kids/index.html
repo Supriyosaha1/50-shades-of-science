@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Machine Learning Visual Textbook · 50 Shades of Science</title>
+  <meta name="description" content="A simple, visual, hands-on interactive Machine Learning textbook for students. One concept at a time, explained with interactive animations.">
+  <link rel="shortcut icon" href="../../assets/favicon.svg" title="Favicon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/mlk-reader.css">
+</head>
+<body class="mlk-reader">
+
+  <!-- Minimal Sticky Header -->
+  <header class="mlk-header">
+    <div class="mlk-header-inner">
+      <button id="openTocBtn" class="mlk-toc-btn" aria-label="Open Table of Contents">
+        <span>☰</span>
+        <span>Chapters</span>
+      </button>
+
+      <div class="mlk-header-center">
+        <span id="headerProgress" class="mlk-header-progress">01 / 54</span>
+      </div>
+
+      <div class="mlk-header-right">
+        <a href="../../index.html" class="mlk-senior-link">← 50 Shades Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Table of Contents Slide-out Drawer -->
+  <div id="drawerOverlay" class="mlk-drawer-overlay" aria-hidden="true">
+    <div class="mlk-drawer" role="dialog" aria-label="Table of Contents">
+      <div class="mlk-drawer-header">
+        <h3>All 11 Chapters</h3>
+        <button id="closeTocBtn" class="mlk-drawer-close" aria-label="Close Table of Contents">✕</button>
+      </div>
+      <div id="drawerBody" class="mlk-drawer-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Right-Side Vertical Visual Hook (Desktop Margin Anchor) -->
+  <aside id="sideNextRail" class="mlk-side-rail" aria-label="Up Next">
+    <div class="mlk-side-rail-card" id="sideNextCard" role="button" tabindex="0">
+      <span class="mlk-side-rail-tag">Up Next</span>
+      <div id="sideNextIcon" class="mlk-side-rail-icon">🤖</div>
+      <span id="sideNextId" class="mlk-side-rail-id">Concept 1.2</span>
+      <h4 id="sideNextTitle" class="mlk-side-rail-title">Can a Computer Learn?</h4>
+      <span class="mlk-side-rail-arrow">Continue →</span>
+    </div>
+  </aside>
+
+  <!-- Balanced Centered Reading Column -->
+  <main class="mlk-main">
+    
+    <!-- Step 1: Concept Header Card -->
+    <header class="mlk-card mlk-concept-card">
+      <div class="mlk-concept-meta">
+        <span id="conceptKicker" class="mlk-badge mlk-badge-primary">Chapter 1 · Concept 1.1</span>
+      </div>
+      <h1 id="conceptTitle" class="mlk-concept-title">How Do We Learn?</h1>
+      <p id="conceptQuestion" class="mlk-concept-question">How do you know an apple is an apple when you see one?</p>
+      <p id="conceptQuestionDesc" class="mlk-concept-desc">Can you see how your brain works? You did not memorize a 50-page rulebook. When you see a fruit, your brain compares its clues (color, shape, peel) to memories of examples you have seen before!</p>
+    </header>
+
+    <!-- Step 2 & 3: Interactive Visual Lab Card -->
+    <section class="mlk-card mlk-lab-card" aria-label="Interactive Visual Lab">
+      <div class="mlk-lab-header">
+        <!-- Mode Switcher Tabs -->
+        <div class="mlk-lab-modes" role="tablist">
+          <button id="modeLabBtn" class="mlk-mode-btn active" role="tab" aria-selected="true" onclick="window.switchLabMode('lab')">
+            <span>🧪</span> Hands-On Lab
+          </button>
+          <button id="modeAnimBtn" class="mlk-mode-btn" role="tab" aria-selected="false" onclick="window.switchLabMode('anim')">
+            <span>🎬</span> Watch Animation
+          </button>
+        </div>
+
+        <span id="visHint" class="mlk-lab-hint">💡 Try clicking the fruits below:</span>
+
+        <!-- Floating Zoom Bar (Active on graph/line concepts) -->
+        <div id="visZoomTools" class="mlk-zoom-bar" aria-label="Zoom Controls" style="display: none;">
+          <button id="zoomOutBtn" class="mlk-mini-btn" title="Zoom Out">−</button>
+          <span id="zoomIndicator" class="mlk-zoom-val">100%</span>
+          <button id="zoomInBtn" class="mlk-mini-btn" title="Zoom In">+</button>
+          <button id="zoomResetBtn" class="mlk-mini-btn" title="Reset Zoom">↺</button>
+        </div>
+      </div>
+
+      <!-- Lab View: Interactive Canvas & Controls -->
+      <div id="labView">
+        <div id="visCanvas" class="mlk-canvas">
+          <!-- Injected dynamically by concept controller -->
+        </div>
+
+        <!-- Hands-on Controls Under Canvas -->
+        <div id="controlsBar" class="mlk-controls">
+          <!-- Injected dynamically by concept controller -->
+        </div>
+      </div>
+
+      <!-- Animation View: Embedded Video Player -->
+      <div id="animView" class="mlk-anim-view" style="display: none;">
+        <div class="mlk-video-wrapper">
+          <video id="manimVideoPlayer" controls playsinline preload="metadata">
+            <source id="manimVideoSource" src="media/videos/chapter1.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <div class="mlk-video-bar">
+          <span id="animCaption" class="mlk-video-caption">🎬 One-Shot Animation: Chapter 1 · What is Machine Learning?</span>
+          <button class="mlk-mini-replay-btn" onclick="const p = document.getElementById('manimVideoPlayer'); if(p) { p.currentTime = 0; p.play(); }">↺ Replay</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 4: Step-by-Step Educational Deep Dive Card -->
+    <article class="mlk-card mlk-explanation-card">
+      
+      <!-- Observation Section -->
+      <div class="mlk-observe-section">
+        <div class="mlk-section-header">
+          <span class="mlk-section-icon">🔍</span>
+          <h3 class="mlk-section-heading">What to Notice</h3>
+        </div>
+        <p id="conceptObservation" class="mlk-body-text">
+          Can you see what happens when you click on the Green Apple 🍏? Look closely! Even though the color is green, your brain did NOT get tricked into calling it an orange. Now change it—click the Orange 🍊 above! Notice how your brain instantly switches memories because of the bumpy peel and citrus shape.
+        </p>
+      </div>
+
+      <!-- Mechanism Section -->
+      <div class="mlk-mechanism-section">
+        <div class="mlk-section-header">
+          <span class="mlk-section-icon">🧠</span>
+          <h3 class="mlk-section-heading">How It Actually Works</h3>
+        </div>
+        <div id="conceptMechanism" class="mlk-body-text">
+          Why does your brain do this? Your brain stores previous examples (a personal memory dataset). When a new fruit appears, your eyes measure multiple clues together: color, size, shape, and skin texture. No two apples are ever 100% identical, so your brain learns the flexible pattern rather than memorizing a single rigid picture!
+        </div>
+      </div>
+
+    </article>
+
+    <!-- Step 5: Key Takeaway Card -->
+    <div class="mlk-takeaway-card">
+      <div class="mlk-takeaway-left">
+        <span class="mlk-takeaway-icon">💡</span>
+        <div>
+          <span class="mlk-takeaway-kicker">Core Insight</span>
+          <p id="conceptTakeawayText" class="mlk-takeaway-text">We learn to recognize things by looking at examples.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Up Next Visual Teaser Card (Connected Lesson Transition) -->
+    <div class="mlk-next-card" id="bottomNextCard">
+      <div class="mlk-next-card-content">
+        <span id="bottomNextIcon" class="mlk-next-card-icon">🤖</span>
+        <div>
+          <span class="mlk-next-card-tag">Up Next · <span id="bottomNextId">Concept 1.2</span></span>
+          <h4 id="bottomNextTitle" class="mlk-next-card-title">Can a Computer Learn?</h4>
+          <p id="bottomNextDesc" class="mlk-next-card-desc">Can a machine without eyes or taste buds recognize an apple?</p>
+        </div>
+      </div>
+      <button id="bottomNextBtn" class="mlk-next-card-btn">Continue to Next Concept →</button>
+    </div>
+
+    <!-- Navigation Footer -->
+    <nav class="mlk-nav-footer" aria-label="Lesson Navigation">
+      <a id="navPrevBtn" href="#" class="mlk-nav-link prev">← Previous</a>
+      <a id="navNextBtn" href="#" class="mlk-nav-link next">Next Concept →</a>
+    </nav>
+
+  </main>
+
+  <!-- Universal bundle: runs both via http:// and directly via double-clicking (file://) -->
+  <script src="js/bundle/reader.bundle.js"></script>
+</body>
+</html>

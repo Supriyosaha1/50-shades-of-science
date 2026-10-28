@@ -1,0 +1,518 @@
+/* ==========================================================================
+   ML Adventure Lab - Scoped Kid-Friendly Stylesheet
+   Strictly scoped under .mlk-root to prevent any style leaks to the parent site
+   ========================================================================== */
+
+.mlk-root {
+  /* Design Tokens */
+  --mlk-bg: #f8fafc;
+  --mlk-card: #ffffff;
+  --mlk-card-alt: #f1f5f9;
+  --mlk-border: #e2e8f0;
+  --mlk-border-dark: #cbd5e1;
+  --mlk-text-title: #0f172a;
+  --mlk-text-body: #334155;
+  --mlk-text-muted: #64748b;
+  --mlk-accent-blue: #2563eb;
+  --mlk-accent-emerald: #059669;
+  --mlk-accent-amber: #d97706;
+  --mlk-accent-rose: #e11d48;
+  --mlk-accent-purple: #7c3aed;
+  --mlk-radius-sm: 8px;
+  --mlk-radius-md: 12px;
+  --mlk-radius-lg: 18px;
+  --mlk-radius-pill: 9999px;
+  --mlk-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --mlk-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.09), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--mlk-text-body);
+  background-color: var(--mlk-bg);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mlk-root *,
+.mlk-root *::before,
+.mlk-root *::after {
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Container & Layout
+-------------------------------------------------------------------------- */
+.mlk-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 3rem;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Top Navigation Bar
+-------------------------------------------------------------------------- */
+.mlk-navbar {
+  background: var(--mlk-card);
+  border-bottom: 2px solid var(--mlk-border);
+  padding: 0.75rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.mlk-nav-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.mlk-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--mlk-text-title);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.mlk-brand-badge {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--mlk-radius-pill);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.mlk-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.mlk-star-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--mlk-radius-pill);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 1px solid #fde68a;
+}
+
+.mlk-nav-link {
+  color: var(--mlk-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--mlk-radius-sm);
+  transition: all 0.2s ease;
+}
+
+.mlk-nav-link:hover {
+  color: var(--mlk-accent-blue);
+  background: var(--mlk-card-alt);
+}
+
+/* --------------------------------------------------------------------------
+   Grade-Band Toggle (Explorer / Builder / Investigator)
+-------------------------------------------------------------------------- */
+.mlk-level-switcher {
+  display: inline-flex;
+  background: var(--mlk-card-alt);
+  padding: 0.25rem;
+  border-radius: var(--mlk-radius-pill);
+  border: 1px solid var(--mlk-border);
+}
+
+.mlk-level-btn {
+  border: none;
+  background: transparent;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--mlk-radius-pill);
+  cursor: pointer;
+  color: var(--mlk-text-muted);
+  transition: all 0.15s ease;
+}
+
+.mlk-level-btn:hover {
+  color: var(--mlk-text-title);
+}
+
+.mlk-level-btn.active {
+  background: var(--mlk-card);
+  color: var(--mlk-accent-blue);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Banner
+-------------------------------------------------------------------------- */
+.mlk-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  border: 2px solid var(--mlk-border);
+  border-radius: var(--mlk-radius-lg);
+  padding: 2rem;
+  margin-top: 1.25rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--mlk-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.mlk-hero-content {
+  max-width: 650px;
+}
+
+.mlk-hero-kicker {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mlk-accent-blue);
+  margin-bottom: 0.4rem;
+}
+
+.mlk-hero-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--mlk-text-title);
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+
+.mlk-hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--mlk-text-body);
+  margin: 0 0 1.25rem;
+  line-height: 1.5;
+}
+
+.mlk-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons & Pills
+-------------------------------------------------------------------------- */
+.mlk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: var(--mlk-accent-blue);
+  color: white;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--mlk-radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.mlk-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+.mlk-btn:active {
+  transform: translateY(0);
+}
+
+.mlk-btn-secondary {
+  background: var(--mlk-card);
+  color: var(--mlk-text-title);
+  border: 1px solid var(--mlk-border-dark);
+  box-shadow: none;
+}
+
+.mlk-btn-secondary:hover {
+  background: var(--mlk-card-alt);
+  color: var(--mlk-accent-blue);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* --------------------------------------------------------------------------
+   World Map & Cards
+-------------------------------------------------------------------------- */
+.mlk-section-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--mlk-text-title);
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mlk-world-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.mlk-world-card {
+  background: var(--mlk-card);
+  border: 2px solid var(--mlk-border);
+  border-radius: var(--mlk-radius-lg);
+  padding: 1.35rem;
+  box-shadow: var(--mlk-shadow);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mlk-world-card:hover {
+  border-color: var(--mlk-border-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--mlk-shadow-lg);
+}
+
+.mlk-world-card.active-world {
+  border-color: #93c5fd;
+  background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+}
+
+.mlk-world-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.mlk-world-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  background: var(--mlk-card-alt);
+  padding: 0.6rem;
+  border-radius: var(--mlk-radius-md);
+  border: 1px solid var(--mlk-border);
+}
+
+.mlk-world-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--mlk-text-title);
+  font-weight: 700;
+}
+
+.mlk-world-question {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: var(--mlk-text-muted);
+  font-weight: 500;
+}
+
+.mlk-mission-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mlk-mission-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--mlk-radius-md);
+  background: var(--mlk-card-alt);
+  border: 1px solid var(--mlk-border);
+  text-decoration: none;
+  color: var(--mlk-text-title);
+  transition: all 0.15s ease;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.mlk-mission-item:hover:not(.locked) {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: var(--mlk-accent-blue);
+  transform: translateX(2px);
+}
+
+.mlk-mission-item.locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: #f8fafc;
+}
+
+.mlk-mission-item.completed {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+}
+
+.mlk-mission-badge {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--mlk-radius-pill);
+  background: #e2e8f0;
+  color: var(--mlk-text-muted);
+}
+
+.mlk-mission-badge.featured {
+  background: #dbeafe;
+  color: #1e40af;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Lesson Layout (3-Column Desktop / Stacked Mobile)
+-------------------------------------------------------------------------- */
+.mlk-lesson-grid {
+  display: grid;
+  grid-template-columns: 310px 1fr 270px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 1040px) {
+  .mlk-lesson-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mlk-panel {
+  background: var(--mlk-card);
+  border: 2px solid var(--mlk-border);
+  border-radius: var(--mlk-radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--mlk-shadow);
+}
+
+.mlk-panel-kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--mlk-accent-blue);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.mlk-panel-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--mlk-text-title);
+  margin: 0 0 0.6rem;
+  line-height: 1.35;
+}
+
+.mlk-kid-explanation {
+  font-size: 0.925rem;
+  color: var(--mlk-text-body);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Interactive Beat Progress Bar
+-------------------------------------------------------------------------- */
+.mlk-beat-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.mlk-beat-step {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.5rem 0.75rem;
+  background: var(--mlk-card);
+  border: 1px solid var(--mlk-border);
+  border-radius: var(--mlk-radius-md);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--mlk-text-muted);
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.mlk-beat-step:hover {
+  background: var(--mlk-card-alt);
+  color: var(--mlk-text-title);
+}
+
+.mlk-beat-step.active {
+  background: #eff6ff;
+  border-color: var(--mlk-accent-blue);
+  color: var(--mlk-accent-blue);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+-------------------------------------------------------------------------- */
+.mlk-footer {
+  border-top: 1px solid var(--mlk-border);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--mlk-text-muted);
+  background: var(--mlk-card);
+  margin-top: auto;
+}
+
+.mlk-footer a {
+  color: var(--mlk-accent-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.mlk-footer a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility & Reduced Motion
+-------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .mlk-root *,
+  .mlk-root *::before,
+  .mlk-root *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
